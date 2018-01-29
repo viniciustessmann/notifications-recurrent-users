@@ -42,4 +42,8 @@ class Notification extends Model
         return $this->atttributes['repeat'];
     }
 
+    public function findAll() {
+        return $this::all();
+    }
+
 }

@@ -14,7 +14,9 @@ class NotificationController extends Controller
      * @return Response
      */
     public function index(){
-        return view('notifications.index');
+
+        $notification = new Notification();
+        return view('notifications.index', ['notifications' => $notification->findAll()]);
     }
 
     public function add(Request $request){
