@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/notifications', 'NotificationController@index');
+Route::get('/new-notification', 'NotificationController@new');
+Route::post('/add-notification', 'NotificationController@add');

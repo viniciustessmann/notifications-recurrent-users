@@ -18,6 +18,7 @@ class CreateNotificationsTable extends Migration
             $table->string('name');
             $table->datetime('date');
             $table->integer('status');
+            $table->integer('repeat');
             $table->timestamps();
         });
     }

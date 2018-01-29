@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Notification extends Model
 {
@@ -31,6 +32,14 @@ class Notification extends Model
 
     public function getDate() {
         return $this->atttributes['date'];
+    }
+
+    public function setRepeat($repeat) {
+        $this->attributes['repeat'] = $repeat;
+    }
+
+    public function getRepeat() {
+        return $this->atttributes['repeat'];
     }
 
 }
