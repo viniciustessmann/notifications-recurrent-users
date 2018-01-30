@@ -1,5 +1,6 @@
 List notifications
 
+<small><a href="<?php echo $urlToAddNotification; ?>">Add new</a></small>
 <table>
     <tr>
         <th>

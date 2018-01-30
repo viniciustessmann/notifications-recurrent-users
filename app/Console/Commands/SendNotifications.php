@@ -42,7 +42,15 @@ class SendNotifications extends Command
         $nots = $notification->getPendingOfDay();
 
         foreach ($nots as $item) {
-            var_dump($item['date']);   
+            if ($this->sendNotification($item)) {
+                $notification->setNotified($item['id']);
+            } 
         }
+    }
+
+    private function sendNotification($row) {
+        //Logic here
+        echo 'Sending notification to ' . $row['name'];
+        return true;
     }
 }

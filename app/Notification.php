@@ -42,6 +42,11 @@ class Notification extends Model
         return $this->atttributes['repeat'];
     }
 
+    public function setNotified($id) {
+        $this::where('id', $id)
+          ->update(['status' => 1]);
+    }
+
     public function findAll() {
         return $this::all();
     }
@@ -62,9 +67,6 @@ class Notification extends Model
 
         $today = date('Y-m-d');
         $todayNext = $this->addDay(1, $today);
-
-        // var_dump('date = ' . $today);
-        // var_dump('next day = ' . $todayNext);
 
         return $this::where('status', 0)
                ->where('date', '>=', $today . ' 00:00:00')

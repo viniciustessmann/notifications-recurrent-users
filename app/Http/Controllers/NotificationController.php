@@ -16,7 +16,11 @@ class NotificationController extends Controller
     public function index(){
 
         $notification = new Notification();
-        return view('notifications.index', ['notifications' => $notification->findAll()]);
+        
+        return view('notifications.index', [
+            'notifications' => $notification->findAll(),
+            'urlToAddNotification' => action('NotificationController@new')
+        ]);
     }
 
     public function add(Request $request){
