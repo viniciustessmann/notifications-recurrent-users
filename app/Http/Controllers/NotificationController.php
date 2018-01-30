@@ -16,7 +16,7 @@ class NotificationController extends Controller
     public function index(){
 
         $notification = new Notification();
-        
+
         return view('notifications.index', [
             'notifications' => $notification->findAll(),
             'urlToAddNotification' => action('NotificationController@new')
@@ -37,6 +37,8 @@ class NotificationController extends Controller
             $notification->setDate($notification->addMonth($x,$request->input('date')));  
             $notification->save();
         }
+
+        return redirect('/');
     }
 
     /**
