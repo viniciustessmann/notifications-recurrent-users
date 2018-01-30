@@ -46,4 +46,29 @@ class Notification extends Model
         return $this::all();
     }
 
+    public function addMonth($numMonth, $date) {
+        $date = strtotime($date);
+        $date = date('Y-m-d', $date);
+        return  date( "Y-m-d", strtotime( $date . " +" . $numMonth . " month" ) );
+    }
+
+    public function addDay($numDay, $date) {
+        $date = strtotime($date);
+        $date = date('Y-m-d', $date);
+        return  date( "Y-m-d", strtotime( $date . " +" . $numDay . " day" ) );
+    }
+
+    public function getPendingOfDay() {
+
+        $today = date('Y-m-d');
+        $todayNext = $this->addDay(1, $today);
+
+        // var_dump('date = ' . $today);
+        // var_dump('next day = ' . $todayNext);
+
+        return $this::where('status', 0)
+               ->where('date', '>=', $today . ' 00:00:00')
+               ->where('date', '<' , $todayNext . ' 00:00:00')
+               ->get();
+    }
 }

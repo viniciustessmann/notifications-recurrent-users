@@ -11,6 +11,9 @@ List notifications
         <th>
             Date
         </th>
+        <th>
+            Status
+        </th>
     </tr>
 
     <?php foreach ($notifications as $notification) { ?>
@@ -23,6 +26,15 @@ List notifications
             </td>
             <td>
                 <?php echo $notification['date']; ?>
+            </td>
+            <td>
+                <?php 
+                    if($notification['status'] == 0) {
+                        echo 'Pendente';
+                    } else {
+                        echo 'Notificado';
+                    }
+                ?>
             </td>
         </tr>
     <?php } ?>

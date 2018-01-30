@@ -30,7 +30,7 @@ class NotificationController extends Controller
             $notification->setName($request->input('name'));
             $notification->setStatus(0);
             $notification->setRepeat($x);
-            $notification->setDate($this->addMonth($x,$request->input('date')));  
+            $notification->setDate($notification->addMonth($x,$request->input('date')));  
             $notification->save();
         }
     }
@@ -45,7 +45,6 @@ class NotificationController extends Controller
     }
 
     private function addMonth($numMonth, $date) {
-       
         $date = strtotime($date);
         $date = date('Y-m-d', $date);
         return  date( "Y-m-d", strtotime( $date . " +" . $numMonth . " month" ) );
