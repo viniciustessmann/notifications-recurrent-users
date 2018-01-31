@@ -38,6 +38,7 @@ class SendNotifications extends Command
      */
     public function handle()
     {
+        echo "Start notification";
         $notification = new Notification();
         $nots = $notification->getPendingOfDay();
 
