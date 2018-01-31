@@ -15,7 +15,7 @@ usuários.
 
 ## Cronjob
 Para a notificação funcionar é preciso configurar uma cronjob.
-"0 14 * * * php /path-to-your-project/artisan Notification:run""
+- 0 14 * * * php /path-to-your-project/artisan Notification:run
 Essa crontab está programada para rodas todos os dias as 14:00h, e serve para buscar no banco de dados as entradas para as notificações do dia atual.
 
 ## Como adicionar um registro
